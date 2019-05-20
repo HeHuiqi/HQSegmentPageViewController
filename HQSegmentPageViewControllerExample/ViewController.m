@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "HqCustomSegmentPageVC.h"
 @interface ViewController ()
 
 @end
@@ -16,7 +16,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    UILabel *lab = [[UILabel alloc] init];
+    [self.view addSubview:lab];
+    lab.text = @"点击屏幕";
+    lab.textAlignment = NSTextAlignmentCenter;
+    lab.frame = self.view.bounds;
+}
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [super touchesEnded:touches withEvent:event];
+    HqCustomSegmentPageVC *vc = [[HqCustomSegmentPageVC alloc] init];
+    [self.navigationController pushViewController:vc
+                                         animated:YES];
 }
 
 
